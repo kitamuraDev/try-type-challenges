@@ -1,2 +1,5 @@
-# try-type-challenges
-type-challenges log
+<br />
+
+<h3 align="center">type-challenges try log</h3>
+
+<br />
