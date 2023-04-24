@@ -1,5 +1,9 @@
 /* _____________ Your Code Here _____________ */
 
+/**
+ * 1. conditional type で inferを使う
+ * 2. infer で推論した 戻り値U型を返す
+ */
 type MyReturnType<T extends (...args: any[]) => any> = T extends (
   ...args: any[]
 ) => infer U
