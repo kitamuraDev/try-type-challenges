@@ -7,11 +7,19 @@
  * 2. 残りは `-` を取り除く。文字列を先頭とそれ以外で分けて、F が `-` かどうか判定して条件分岐を行うだけ
  */
 // prettier-ignore
-type Absolute<T extends number | string | bigint> = `${T}` extends `${infer F}${infer Rest}`
-    ? F extends "-"
-      ? Rest
-      : `${T}`
-    : never;
+// type Absolute<T extends number | string | bigint> = `${T}` extends `${infer F}${infer Rest}`
+//     ? F extends "-"
+//       ? Rest
+//       : `${T}`
+//     : never;
+
+/**
+ * 別解（こちらの方がシンプルでわかりやすいかも）
+ *
+ * `-${infer U}` で `-` を含んでいるか判定して条件分岐を行うやり方
+ */
+type Absolute<T extends number | string | bigint> = `${T}` extends `-${infer U}`
+  ? U : `${T}`
 
 /* _____________ Test Cases _____________ */
 
