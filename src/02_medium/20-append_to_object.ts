@@ -3,7 +3,7 @@
 /**
  * 1. あるオブジェクトから新しいオブジェクトを生成するので、`Mapped types`を使う
  * 2. `keyof T` でT型のオブジェクトのキーをイテレートするので、`|`（ユニオン型）でUをマージする
- * 3. PがU型の場合、Vを返し、そうでない場合には、T[P]を返す
+ * 3. P型がU型のサブタイプである場合、Vを返し、そうでない場合には、T[P]を返す
  */
 type AppendToObject<T extends Record<string, unknown>, U extends string, V> = {
   [P in keyof T | U]: P extends U ? V : T[P];
